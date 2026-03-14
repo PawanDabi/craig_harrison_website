@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Glass Pavilion — Craig Harrison Architects</title>
+  <meta name="description" content="A study in transparency and form — the Glass Pavilion, Sussex 2023." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ─── NAVIGATION ─────────────────────────────────────────── -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo">
+      <a href="index.html">Craig Harrison</a>
+    </div>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="services.html"  class="nav__link">Services</a></li>
+      <li><a href="about.html"     class="nav__link">About</a></li>
+      <li><a href="projects.html"  class="nav__link" style="color:var(--white)">Projects</a></li>
+      <li><a href="resources.html" class="nav__link">Resources</a></li>
+      <li><a href="contact.html"   class="nav__link nav__link--cta">Let's Chat</a></li>
+    </ul>
+  </nav>
+
+  <!-- Mobile overlay -->
+  <div class="nav__overlay" id="navOverlay">
+    <ul class="nav__overlay-links">
+      <li><a href="services.html"  class="overlay-link" data-num="01">Services</a></li>
+      <li><a href="about.html"     class="overlay-link" data-num="02">About</a></li>
+      <li><a href="projects.html"  class="overlay-link" data-num="03">Projects</a></li>
+      <li><a href="resources.html" class="overlay-link" data-num="04">Resources</a></li>
+      <li><a href="contact.html"   class="overlay-link" data-num="05">Let's Chat</a></li>
+    </ul>
+    <div class="nav__overlay-footer">
+      <p>studio@antonychandler.co.uk</p>
+      <p>+44 (0)20 7123 4567</p>
+    </div>
+  </div>
+
+  <!-- ─── PROJECT HERO ────────────────────────────────────────── -->
+  <div class="project-hero">
+    <img
+      src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1920&q=80"
+      alt="The Glass Pavilion — hero"
+      loading="eager"
+    />
+    <div class="project-hero__overlay"></div>
+  </div>
+
+  <!-- ─── PROJECT META ─────────────────────────────────────────── -->
+  <section class="project-meta">
+    <div class="container">
+      <div class="project-meta__grid">
+
+        <div class="project-meta__left">
+          <p class="label reveal">Selected Works — Residential</p>
+          <h1 class="project-meta__title reveal">The Glass<br>Pavilion</h1>
+          <p class="project-meta__description reveal">
+            A study in transparency and form, the Glass Pavilion stands at the edge of the South Downs, where the horizon dissolves into sky. The structure is not a house — it is a frame for landscape; a threshold between the inhabited and the infinite.
+          </p>
+          <p class="project-meta__description reveal" style="margin-top: 20px;">
+            The brief called for a home that would honour its setting without competing with it. Our response was a linear pavilion of glass and exposed concrete, oriented precisely to capture both the morning light and the distant view of the sea. Every window is a painting. Every threshold is a ceremony.
+          </p>
+        </div>
+
+        <div class="project-meta__specs">
+          <div class="spec reveal">
+            <p class="spec__label">Project</p>
+            <p class="spec__value">The Glass Pavilion</p>
+          </div>
+          <div class="spec reveal">
+            <p class="spec__label">Location</p>
+            <p class="spec__value">Sussex, United Kingdom</p>
+          </div>
+          <div class="spec reveal">
+            <p class="spec__label">Year</p>
+            <p class="spec__value">2023</p>
+          </div>
+          <div class="spec reveal">
+            <p class="spec__label">Client</p>
+            <p class="spec__value">Private Residence</p>
+          </div>
+          <div class="spec reveal">
+            <p class="spec__label">Area</p>
+            <p class="spec__value">420 m²</p>
+          </div>
+          <div class="spec reveal">
+            <p class="spec__label">Services</p>
+            <p class="spec__value">Architecture, Interior Design, Landscape</p>
+          </div>
+          <div class="spec reveal">
+            <p class="spec__label">Status</p>
+            <p class="spec__value">Completed</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROJECT GALLERY ─────────────────────────────────────── -->
+  <section class="project-gallery">
+    <div class="container">
+      <div class="project-gallery__grid">
+
+        <div class="project-gallery__item project-gallery__item--wide reveal">
+          <img
+            src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&q=80"
+            alt="Exterior — South elevation"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="project-gallery__item reveal">
+          <img
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80"
+            alt="Living space interior"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="project-gallery__item reveal">
+          <img
+            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80"
+            alt="Garden terrace and landscape"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="project-gallery__item reveal">
+          <img
+            src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=900&q=80"
+            alt="Bedroom with garden view"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="project-gallery__item reveal">
+          <img
+            src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&q=80"
+            alt="North facade at dusk"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="project-gallery__item project-gallery__item--wide reveal">
+          <img
+            src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1600&q=80"
+            alt="Aerial — site and landscape"
+            loading="lazy"
+          />
+        </div>
+
+      </div>
+
+      <!-- Photo captions row -->
+      <div style="margin-top: 20px; display: flex; gap: 12px; justify-content: flex-end;">
+        <p style="font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--grey-700);">Photography: Studio Archive</p>
+      </div>
+
+      <!-- Back / Next nav -->
+      <nav class="project-nav reveal" aria-label="Project navigation">
+        <a href="index.html#projects" class="project-nav__link">
+          <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M19 6H1M7 1L1 6l6 5" stroke="currentColor" stroke-width="1"/></svg>
+          All Projects
+        </a>
+        <span style="font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--grey-700);">01 / 06</span>
+        <a href="project.html" class="project-nav__link">
+          Next Project
+          <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M1 6h18M13 1l6 5-6 5" stroke="currentColor" stroke-width="1"/></svg>
+        </a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ─── CTA STRIP ────────────────────────────────────────────── -->
+  <section class="cta" id="contact" style="padding: clamp(80px,10vw,140px) 0;">
+    <div class="container">
+      <div class="cta__inner">
+        <p class="label reveal">Start a Conversation</p>
+        <h2 class="cta__heading reveal">
+          Ready to begin<br>a new project?
+        </h2>
+        <p class="cta__sub reveal">
+          Every great building begins with an honest conversation.<br>Tell us about your vision.
+        </p>
+        <a href="mailto:studio@antonychandler.co.uk" class="cta__btn reveal">Let's Chat</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ───────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <p class="footer__logo">Craig Harrison</p>
+          <p class="footer__tagline">Architecture · Interior · Urban Design</p>
+        </div>
+      </div>
+
+      <div class="footer__rule"></div>
+
+      <div class="footer__cols">
+        <div class="footer__col">
+          <p class="footer__col-title">Studio</p>
+          <address>
+            14 Whitfield Street<br />
+            Fitzrovia, London<br />
+            W1T 2RH, United Kingdom
+          </address>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Contact</p>
+          <p><a href="mailto:studio@antonychandler.co.uk">studio@antonychandler.co.uk</a></p>
+          <p><a href="tel:+442071234567">+44 (0)20 7123 4567</a></p>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Services</p>
+          <p>Residential Design</p>
+          <p>Commercial Architecture</p>
+          <p>Heritage Restoration</p>
+          <p>Urban Planning</p>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Follow</p>
+          <p><a href="#" target="_blank" rel="noopener">Instagram</a></p>
+          <p><a href="#" target="_blank" rel="noopener">LinkedIn</a></p>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2024 Craig Harrison Architects Ltd. All rights reserved.</p>
+        <p>Registered in England &amp; Wales · No. 07654321</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── CUSTOM CURSOR ───────────────────────────────────────── -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

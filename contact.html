@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Let's Chat — Craig Harrison Architects</title>
+  <meta name="description" content="Start a conversation with Craig Harrison Architects. Studio based in Fitzrovia, London." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ─── NAV ─────────────────────────────────────────────────── -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo"><a href="index.html">Craig Harrison</a></div>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span></button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="services.html"  class="nav__link">Services</a></li>
+      <li><a href="about.html"     class="nav__link">About</a></li>
+      <li><a href="projects.html"  class="nav__link">Projects</a></li>
+      <li><a href="resources.html" class="nav__link">Resources</a></li>
+      <li><a href="contact.html"   class="nav__link nav__link--cta" style="background:var(--white);color:var(--bg);">Let's Chat</a></li>
+    </ul>
+  </nav>
+  <div class="nav__overlay" id="navOverlay">
+    <ul class="nav__overlay-links">
+      <li><a href="services.html"  class="overlay-link" data-num="01">Services</a></li>
+      <li><a href="about.html"     class="overlay-link" data-num="02">About</a></li>
+      <li><a href="projects.html"  class="overlay-link" data-num="03">Projects</a></li>
+      <li><a href="resources.html" class="overlay-link" data-num="04">Resources</a></li>
+      <li><a href="contact.html"   class="overlay-link" data-num="05">Let's Chat</a></li>
+    </ul>
+    <div class="nav__overlay-footer">
+      <p>studio@antonychandler.co.uk</p>
+      <p>+44 (0)20 7123 4567</p>
+    </div>
+  </div>
+
+  <!-- ─── PAGE BANNER ─────────────────────────────────────────── -->
+  <section class="page-banner">
+    <div class="container">
+      <span class="page-banner__eyebrow reveal">Get In Touch</span>
+      <h1 class="page-banner__title reveal">Let's Chat</h1>
+      <p class="page-banner__sub reveal">
+        Every project begins with a conversation. Tell us about your vision, your site, your timeline — and we will take it from there.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT SECTION ──────────────────────────────────────── -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Left: Contact Info -->
+        <div class="contact-info">
+          <h2 class="contact-info__heading reveal">
+            We would love to hear about your project.
+          </h2>
+
+          <div class="contact-info__block reveal">
+            <p class="contact-info__block-label">Studio Address</p>
+            <address>
+              14 Whitfield Street<br />
+              Fitzrovia, London<br />
+              W1T 2RH<br />
+              United Kingdom
+            </address>
+          </div>
+
+          <div class="contact-info__block reveal">
+            <p class="contact-info__block-label">Email</p>
+            <p><a href="mailto:studio@antonychandler.co.uk">studio@antonychandler.co.uk</a></p>
+            <p style="margin-top:4px; font-size:12px; color:var(--grey-600);">We aim to respond within 48 hours.</p>
+          </div>
+
+          <div class="contact-info__block reveal">
+            <p class="contact-info__block-label">Telephone</p>
+            <p><a href="tel:+442071234567">+44 (0)20 7123 4567</a></p>
+            <p style="margin-top:4px; font-size:12px; color:var(--grey-600);">Mon – Fri, 9:00 – 18:00 GMT</p>
+          </div>
+
+          <div class="contact-info__block reveal">
+            <p class="contact-info__block-label">Follow the Studio</p>
+            <p>
+              <a href="#" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px;">
+                Instagram
+                <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 4h10M7 1l3 3-3 3" stroke="currentColor" stroke-width="1"/></svg>
+              </a>
+            </p>
+            <p style="margin-top:8px;">
+              <a href="#" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px;">
+                LinkedIn
+                <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 4h10M7 1l3 3-3 3" stroke="currentColor" stroke-width="1"/></svg>
+              </a>
+            </p>
+          </div>
+
+          <!-- Studio image -->
+          <div style="aspect-ratio:4/3; overflow:hidden; margin-top: 48px;" class="reveal">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Craig Harrison studio" loading="lazy" style="filter:grayscale(30%)" />
+          </div>
+
+        </div>
+
+        <!-- Right: Form -->
+        <div>
+          <p class="label reveal" style="margin-bottom: 40px;">New Enquiry</p>
+          <form class="contact-form reveal" action="#" method="post" novalidate>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first_name" placeholder="Your first name" autocomplete="given-name" />
+              </div>
+              <div class="form-field">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last_name" placeholder="Your last name" autocomplete="family-name" />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" />
+            </div>
+
+            <div class="form-field">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+44 (0)" autocomplete="tel" />
+            </div>
+
+            <div class="form-field">
+              <label for="project-type">Project Type</label>
+              <select id="project-type" name="project_type">
+                <option value="" disabled selected>Select a category</option>
+                <option value="residential-new">Residential — New Build</option>
+                <option value="residential-ext">Residential — Extension / Refurbishment</option>
+                <option value="commercial">Commercial Architecture</option>
+                <option value="restoration">Heritage Restoration</option>
+                <option value="interior">Interior Architecture</option>
+                <option value="urban">Urban Design</option>
+                <option value="other">Other / Not sure yet</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="location">Project Location</label>
+              <input type="text" id="location" name="location" placeholder="City, county, or country" />
+            </div>
+
+            <div class="form-field">
+              <label for="budget">Approximate Budget</label>
+              <select id="budget" name="budget">
+                <option value="" disabled selected>Select a range (optional)</option>
+                <option value="under-250k">Under £250,000</option>
+                <option value="250-500k">£250,000 – £500,000</option>
+                <option value="500k-1m">£500,000 – £1,000,000</option>
+                <option value="1m-3m">£1,000,000 – £3,000,000</option>
+                <option value="over-3m">Over £3,000,000</option>
+                <option value="tbd">To be discussed</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="message">Tell Us About Your Project</label>
+              <textarea id="message" name="message" placeholder="Describe your project, your vision, or simply say hello — whatever feels right at this stage."></textarea>
+            </div>
+
+            <div class="form-submit">
+              <p class="form-submit__note">
+                Your enquiry is treated with complete confidentiality. We will respond within 48 hours.
+              </p>
+              <button type="submit" class="btn-submit">Send Enquiry</button>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── MAP PLACEHOLDER ──────────────────────────────────────── -->
+  <div style="height:360px; background:var(--bg-alt); border-top:1px solid var(--line); overflow:hidden; position:relative; display:flex; align-items:center; justify-content:center;">
+    <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1920&q=40" alt="Studio location" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.12; filter:grayscale(100%);" loading="lazy" />
+    <div style="position:relative; z-index:2; text-align:center;">
+      <p style="font-size:10px; letter-spacing:0.20em; text-transform:uppercase; color:var(--grey-600); margin-bottom:12px;">Studio Location</p>
+      <p style="font-size:20px; font-weight:200; letter-spacing:0.04em; color:var(--white);">14 Whitfield Street, Fitzrovia, London</p>
+      <p style="font-size:12px; color:var(--grey-600); margin-top:6px; letter-spacing:0.06em;">W1T 2RH · United Kingdom</p>
+      <a href="https://maps.google.com/?q=Whitfield+Street+London+W1T+2RH" target="_blank" rel="noopener" class="text-link" style="margin-top:28px; display:inline-flex;">Open in Maps <span>→</span></a>
+    </div>
+  </div>
+
+  <!-- ─── FOOTER ───────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <p class="footer__logo">Craig Harrison</p>
+          <p class="footer__tagline">Architecture · Interior · Urban Design</p>
+        </div>
+      </div>
+      <div class="footer__rule"></div>
+      <div class="footer__cols">
+        <div class="footer__col">
+          <p class="footer__col-title">Studio</p>
+          <address>14 Whitfield Street<br />Fitzrovia, London<br />W1T 2RH, United Kingdom</address>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Contact</p>
+          <p><a href="mailto:studio@antonychandler.co.uk">studio@antonychandler.co.uk</a></p>
+          <p><a href="tel:+442071234567">+44 (0)20 7123 4567</a></p>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Services</p>
+          <p>Residential Design</p>
+          <p>Commercial Architecture</p>
+          <p>Heritage Restoration</p>
+          <p>Urban Planning</p>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Follow</p>
+          <p><a href="#" target="_blank" rel="noopener">Instagram</a></p>
+          <p><a href="#" target="_blank" rel="noopener">LinkedIn</a></p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2024 Craig Harrison Architects Ltd. All rights reserved.</p>
+        <p>Registered in England &amp; Wales · No. 07654321</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>

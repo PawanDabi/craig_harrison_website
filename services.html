@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — Craig Harrison Architects</title>
+  <meta name="description" content="Architecture services: residential, commercial, and heritage restoration by Craig Harrison Architects, London." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@200;300;400;500&family=Playfair+Display:wght@400;500&family=Public+Sans:wght@100;300;400;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      corePlugins: { preflight: false },
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#ec5b13",
+            "background-dark": "#0a0a0a",
+            "surface": "#141414",
+          },
+          fontFamily: {
+            "display": ["Public Sans", "sans-serif"]
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    body { background: #0a0a0a; }
+
+    /* ── Services Hero — full screen ── */
+    .svc-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: #0a0a0a;
+    }
+    .svc-hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .svc-hero__bg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      filter: grayscale(100%) brightness(0.85);
+      transition: filter 1.2s ease;
+    }
+    .svc-hero:hover .svc-hero__bg img {
+      filter: grayscale(0%) brightness(1.1) saturate(1.5);
+    }
+    .svc-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.92) 30%, rgba(10,10,10,0.3) 100%);
+      z-index: 1;
+    }
+    .svc-hero__content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: clamp(80px,10vw,160px) clamp(48px,5vw,96px) clamp(64px,6vw,100px);
+    }
+    .svc-hero__label {
+      display: block;
+      font-size: 14px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 24px;
+    }
+    .svc-hero__title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(52px, 7vw, 110px);
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin-bottom: 32px;
+    }
+    .svc-hero__sub {
+      font-size: clamp(13px, 1.1vw, 15px);
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.04em;
+      max-width: 480px;
+    }
+
+    /* ── Intro ── */
+    .svc-intro {
+      background: #0a0a0a;
+      padding: clamp(80px,8vw,120px) clamp(24px,4vw,80px);
+    }
+    .svc-intro__inner {
+      max-width: 1600px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .svc-intro__label {
+      font-size: 14px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      display: block;
+      margin-bottom: 20px;
+    }
+    .svc-intro__heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 3.5vw, 54px);
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1.15;
+      color: #fff;
+    }
+    .svc-intro__body {
+      font-size: clamp(14px, 1.1vw, 16px);
+      line-height: 1.9;
+      color: rgba(255,255,255,0.45);
+      font-weight: 300;
+      padding-top: 8px;
+    }
+    @media (max-width: 860px) {
+      .svc-intro__inner { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    /* ── Service Rows — alternating layout ── */
+    .svc-services {
+      background: #0a0a0a;
+      padding: 0 clamp(24px,4vw,80px) clamp(80px,8vw,120px);
+    }
+    .svc-services__inner {
+      max-width: 1600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .svc-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 620px;
+    }
+    /* text left, image right */
+    .svc-row--tl .svc-row__text { order: 1; }
+    .svc-row--tl .svc-row__img  { order: 2; }
+    /* image left, text right */
+    .svc-row--il .svc-row__img  { order: 1; }
+    .svc-row--il .svc-row__text { order: 2; }
+
+    .svc-row__img {
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .svc-row__img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%) !important;
+      transition: filter 1s ease, transform 1s ease !important;
+    }
+    .svc-row__img:hover img {
+      filter: grayscale(0%) !important;
+      transform: scale(1.03) !important;
+    }
+    .svc-row__text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 56px 52px 64px;
+      background: #0a0a0a;
+    }
+    .svc-row__num {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      display: block;
+      margin-bottom: 18px;
+    }
+    .svc-row__title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 2.5vw, 40px);
+      font-weight: 400;
+      font-style: normal ;
+      color: #fff;
+      margin-bottom: 20px;
+      line-height: 1.15;
+    }
+    .svc-row__desc {
+      font-size: 14px;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.4);
+      font-weight: 300;
+      margin-bottom: 36px;
+    }
+    .svc-row__list {
+      list-style: none;
+      padding: 0; margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .svc-row__list li {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .svc-row__list li::before {
+      content: '→';
+      color: rgba(255,255,255,0.3);
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+    @media (max-width: 860px) {
+      .svc-row {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+      .svc-row--tl .svc-row__text,
+      .svc-row--il .svc-row__text { order: 2; }
+      .svc-row--tl .svc-row__img,
+      .svc-row--il .svc-row__img  { order: 1; min-height: 280px; }
+    }
+
+    /* ── Pillars ── */
+    .svc-pillars {
+      background: #0a0a0a;
+      padding: clamp(80px,8vw,120px) clamp(24px,4vw,80px) clamp(40px,4vw,60px);
+    }
+    .svc-pillars__inner {
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+    .svc-pillars__header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+    .svc-pillars__label {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 20px;
+    }
+    .svc-pillars__heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 3.5vw, 56px);
+      font-weight: 400;
+      font-style: normal;
+      color: #fff;
+      line-height: 1.1;
+    }
+    .svc-pillars__grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 48px;
+    }
+    .svc-pillars__grid .svc-pillar:nth-child(1) { grid-column: 1 / 3; }
+    .svc-pillars__grid .svc-pillar:nth-child(2) { grid-column: 3 / 5; }
+    .svc-pillars__grid .svc-pillar:nth-child(3) { grid-column: 5 / 7; }
+    .svc-pillars__grid .svc-pillar:nth-child(4) { grid-column: 2 / 4; }
+    .svc-pillars__grid .svc-pillar:nth-child(5) { grid-column: 4 / 6; }
+    .svc-pillar {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 40px 32px 48px;
+      border: 1px solid transparent;
+      transition: border-color 0.4s ease, background 0.4s ease;
+    }
+    .svc-pillar:hover {
+      border-color: rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.02);
+    }
+    .svc-pillar__icon {
+      width: 56px; height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 50%;
+      margin-bottom: 8px;
+    }
+    .svc-pillar__icon .material-symbols-outlined {
+      font-size: 22px;
+      color: rgba(255,255,255,0.5);
+      font-variation-settings: 'wght' 100;
+    }
+    .svc-pillar__title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 1.8vw, 26px);
+      font-weight: 400;
+      font-style: normal;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .svc-pillar__desc {
+      font-size: 14px;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.4);
+      font-weight: 300;
+      max-width: 320px;
+    }
+    @media (max-width: 860px) {
+      .svc-pillars__grid { grid-template-columns: 1fr; }
+      .svc-pillars__grid .svc-pillar { grid-column: auto !important; }
+    }
+
+    /* ── Process ── */
+    .svc-process {
+      background: #0a0a0a;
+      padding: clamp(40px,4vw,60px) clamp(24px,4vw,80px) clamp(40px,4vw,60px);
+      border-top: none;
+      border-bottom: none;
+    }
+    .svc-process__inner {
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+    .svc-process__header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+      margin-bottom: 72px;
+    }
+    .svc-process__heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 3.5vw, 54px);
+      font-weight: 400;
+      font-style: normal;
+      color: #fff;
+      line-height: 1.15;
+    }
+    .svc-process__sub {
+      font-size: 14px;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.4);
+      font-weight: 300;
+      max-width: 560px;
+    }
+    .svc-process__steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+    .svc-step {
+      padding: 40px 36px 44px;
+      border: 1px solid rgba(255,255,255,0.07);
+      transition: border-color 0.4s ease, background 0.4s ease,
+                  opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      opacity: 0;
+    }
+    .svc-step[data-dir="left"]   { transform: translateX(-140px) rotate(-3deg); }
+    .svc-step[data-dir="right"]  { transform: translateX(140px) rotate(3deg); }
+    .svc-step[data-dir="top"]    { transform: translateY(-120px) scale(0.92); }
+    .svc-step[data-dir="bottom"] { transform: translateY(120px) scale(0.92); }
+    .svc-step.in-view {
+      opacity: 1;
+      transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+    }
+    .svc-step:hover {
+      border-color: rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.03);
+    }
+    .svc-step__num {
+      /* font-family: 'Playfair Display', serif; */
+      font-size: 30px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.06);
+      line-height: 1;
+      margin-bottom: 24px;
+      display: block;
+    }
+    .svc-step__title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(18px, 1.5vw, 22px);
+      font-weight: 400;
+      font-style: normal;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .svc-step__desc {
+      font-size: 13px;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.35);
+      font-weight: 300;
+    }
+    @media (max-width: 860px) {
+      .svc-process__header { gap: 16px; }
+      .svc-process__steps { grid-template-columns: 1fr; }
+    }
+
+    /* ── Deliverables ── */
+    .svc-deliver {
+      background: #0a0a0a;
+      padding: clamp(100px,10vw,140px) clamp(24px,4vw,80px) clamp(80px,8vw,120px);
+    }
+    .svc-deliver__inner {
+      max-width: 1600px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: stretch;
+    }
+    .svc-deliver__left {
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 64px 64px 72px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .svc-deliver__arrow {
+      position: absolute;
+      right: -22px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px; height: 44px;
+      background: #111;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.6);
+      z-index: 2;
+    }
+    .svc-deliver__arrow .material-symbols-outlined {
+      font-size: 20px;
+      animation: nudge-right 1.8s ease-in-out infinite;
+    }
+    @keyframes nudge-right {
+      0%, 100% { transform: translateX(0); opacity: 0.6; }
+      50%       { transform: translateX(5px); opacity: 1; }
+    }
+    .svc-deliver__heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 2.8vw, 44px);
+      font-weight: 400;
+      font-style: normal;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .svc-deliver__rule {
+      display: block;
+      width: 36px; height: 1px;
+      background: rgba(255,255,255,0.5);
+      border: none;
+      margin: 20px 0 28px;
+    }
+    .svc-deliver__body {
+      font-size: 14px;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.4);
+      font-weight: 300;
+    }
+    .svc-deliver__items {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding-top: 12px;
+    }
+    .svc-deliver__item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .svc-deliver__item:first-child {
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .svc-deliver__item:hover {
+      background: rgba(255,255,255,0.02);
+      padding-left: 8px;
+    }
+    .svc-deliver__item-content { flex: 1; }
+    .svc-deliver__item-plus {
+      font-size: 18px;
+      color: rgba(255,255,255,0.25);
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50%;
+      transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    }
+    .svc-deliver__item-plus .material-symbols-outlined {
+      font-size: 18px;
+      line-height: 1;
+    }
+    .svc-deliver__item:hover .svc-deliver__item-plus {
+      color: #fff;
+      border-color: rgba(255,255,255,0.4);
+      transform: translateX(4px);
+    }
+
+    /* ── Modal overlay ── */
+    .dlv-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(4px);
+      z-index: 900;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .dlv-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    /* ── Modal panel ── */
+    .dlv-modal {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) scale(0.95);
+      width: min(860px, 92vw);
+      max-height: 85vh;
+      overflow-y: auto;
+      scrollbar-width: none;
+
+      background: #0f0f0f;
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 52px 56px 60px;
+      z-index: 901;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .dlv-modal.open {
+      opacity: 1;
+      pointer-events: all;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    .dlv-modal__close {
+      position: absolute;
+      top: 24px; right: 28px;
+      background: none; border: none;
+      color: rgba(255,255,255,0.4);
+      font-size: 28px;
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.2s ease;
+    }
+    .dlv-modal::-webkit-scrollbar { display: none; }
+    .dlv-modal__close:hover { color: #fff; }
+    .dlv-modal__num {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 12px;
+    }
+    .dlv-modal__title {
+      /* font-family: 'Playfair Display', serif; */
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .dlv-modal__intro {
+      font-size: 14px;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.45);
+      font-weight: 300;
+      margin-bottom: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .dlv-modal__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .dlv-modal__item {
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,0.07);
+      transition: border-color 0.3s ease;
+    }
+    .dlv-modal__item:hover { border-color: rgba(255,255,255,0.18); background: rgba(255,255,255,0.03); }
+    .dlv-modal__item-title {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+    .dlv-modal__item-desc {
+      font-size: 13px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.35);
+      font-weight: 300;
+    }
+    @media (max-width: 600px) {
+      .dlv-modal { padding: 36px 24px 40px; }
+      .dlv-modal__grid { grid-template-columns: 1fr; }
+    }
+    .svc-deliver__item-num {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+    .svc-deliver__item-title {
+      font-size: 18px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+    .svc-deliver__item-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    @media (max-width: 860px) {
+      .svc-deliver__inner { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    /* ── Pointer-active: colour on hover/touch ── */
+    .svc-hero.touch-active .svc-hero__bg img { filter: grayscale(0%) brightness(1.1) saturate(1.5) !important; }
+    .svc-row__img.touch-active img           { filter: grayscale(0%) !important; transform: scale(1.03) !important; }
+
+    /* ── Mobile nav fix — ID selector beats everything ── */
+    @media (max-width: 768px) {
+      #navToggle { display: flex !important; flex-direction: column; gap: 6px; }
+      #navLinks  { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAVIGATION ─────────────────────────────────────────── -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo">
+      <a href="index.html">Craig Harrison</a>
+    </div>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="services.html"  class="nav__link">Services</a></li>
+      <li><a href="about.html"     class="nav__link">About</a></li>
+      <li><a href="projects.html"  class="nav__link">Projects</a></li>
+      <li><a href="resources.html" class="nav__link">Resources</a></li>
+      <li><a href="contact.html"   class="nav__link nav__link--cta">Let's Chat</a></li>
+    </ul>
+  </nav>
+
+  <!-- Mobile menu overlay -->
+  <div class="nav__overlay" id="navOverlay">
+    <ul class="nav__overlay-links">
+      <li><a href="services.html"  class="overlay-link" data-num="01">Services</a></li>
+      <li><a href="about.html"     class="overlay-link" data-num="02">About</a></li>
+      <li><a href="projects.html"  class="overlay-link" data-num="03">Projects</a></li>
+      <li><a href="resources.html" class="overlay-link" data-num="04">Resources</a></li>
+      <li><a href="contact.html"   class="overlay-link" data-num="05">Let's Chat</a></li>
+    </ul>
+    <div class="nav__overlay-footer">
+      <p>studio@antonychandler.co.uk</p>
+      <p>+44 (0)20 7123 4567</p>
+    </div>
+  </div>
+
+  <!-- ─── HERO — full screen ───────────────────────────────────── -->
+  <section class="svc-hero">
+    <div class="svc-hero__bg">
+      <img
+        src="images/services-hero-image-2.jpg"
+        alt="Architecture studio interior"
+        loading="eager"
+      />
+      <div class="svc-hero__overlay"></div>
+    </div>
+    <div class="svc-hero__content">
+      <span class="svc-hero__label reveal">What We Do</span>
+      <h1 class="svc-hero__title reveal">Architecture<br>as a service.</h1>
+      <p class="svc-hero__sub reveal">
+        From the first sketch to the final handover — a complete architectural service shaped by your vision and the demands of each site.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── INTRO ─────────────────────────────────────────────────── -->
+  <section class="svc-intro">
+    <div class="svc-intro__inner">
+      <div>
+        <span class="svc-intro__label reveal">Our Approach</span>
+        <h2 class="svc-intro__heading reveal">
+          Every project begins with listening — not drawing.
+        </h2>
+      </div>
+      <div>
+        <p class="svc-intro__body reveal">
+          We offer a full spectrum of architectural services — from initial site appraisal and planning advice through to technical design and construction oversight. Our work spans residential, commercial, and heritage projects across the United Kingdom and Europe.
+        </p>
+        <p class="svc-intro__body reveal" style="margin-top:20px;">
+          Each engagement is led personally by Craig Harrison. We do not outsource design. We do not dilute our attention across dozens of simultaneous projects. The result is architecture that is genuinely resolved — in every detail, at every scale.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SERVICE ROWS — alternating layout ────────────────────── -->
+  <section class="svc-services">
+    <div class="svc-services__inner">
+
+      <!-- Row 1: text LEFT · image RIGHT -->
+      <div class="svc-row svc-row--tl">
+        <div class="svc-row__text reveal" style="margin-bottom:32px; margin-right:32px;">
+          <span class="svc-row__num" style="font-size:15px;">01</span>
+          <h3 class="svc-row__title">Residential Architecture</h3>
+          <p class="svc-row__desc">
+            New homes, extensions, and interior renovations for private clients. We design spaces that are deeply personal — shaped by how you live, not by convention.
+          </p>
+          <ul class="svc-row__list">
+            <li>New Build Residences</li>
+            <li>Extensions &amp; Loft Conversions</li>
+            <li>Interior Architecture</li>
+            <li>Landscape Integration</li>
+          </ul>
+        </div>
+        <div class="svc-row__img">
+          <img
+            src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80"
+            alt="Residential Architecture"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <!-- Row 2: image LEFT · text RIGHT -->
+      <div class="svc-row svc-row--il">
+        <div class="svc-row__img">
+          <img
+            src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80"
+            alt="Commercial Architecture"
+            loading="lazy"
+          />
+        </div>
+        <div class="svc-row__text reveal" style="margin-top:32px; margin-left:32px; margin-bottom:32px;">
+          <span class="svc-row__num" style="font-size:15px;">02</span>
+          <h3 class="svc-row__title">Commercial Architecture</h3>
+          <p class="svc-row__desc">
+            Offices, cultural institutions, hospitality, and mixed-use developments. Spaces that perform commercially while expressing a clear architectural identity.
+          </p>
+          <ul class="svc-row__list">
+            <li>Office &amp; Workspace Design</li>
+            <li>Retail &amp; Hospitality</li>
+            <li>Cultural &amp; Civic Buildings</li>
+            <li>Mixed-Use Developments</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Row 3: text LEFT · image RIGHT -->
+      <div class="svc-row svc-row--tl">
+        <div class="svc-row__text reveal" style="margin-top:32px; margin-right:32px; margin-bottom:32px;">
+          <span class="svc-row__num" style="font-size:15px;">03</span>
+          <h3 class="svc-row__title">Heritage Restoration</h3>
+          <p class="svc-row__desc">
+            Sensitive interventions on listed and historic buildings. We work within the constraints of conservation with care for what already exists — and for what should endure.
+          </p>
+          <ul class="svc-row__list">
+            <li>Listed Building Consent</li>
+            <li>Conservation Area Work</li>
+            <li>Structural Remediation</li>
+            <li>Adaptive Reuse</li>
+          </ul>
+        </div>
+        <div class="svc-row__img">
+          <img
+            src="https://images.unsplash.com/photo-1481026469463-66327c86e544?w=1200&q=80"
+            alt="Heritage Restoration"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <!-- Row 4: image LEFT · text RIGHT -->
+      <div class="svc-row svc-row--il">
+        <div class="svc-row__img">
+          <img
+            src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=80"
+            alt="Urban Planning"
+            loading="lazy"
+          />
+        </div>
+        <div class="svc-row__text reveal" style="margin-top:32px; margin-left:32px;">
+          <span class="svc-row__num" style="font-size:15px;">04</span>
+          <h3 class="svc-row__title">Urban Planning and Masterplanning</h3>
+          <p class="svc-row__desc">
+            Large-scale site strategies and urban design frameworks that shape how people move through, inhabit, and experience a place over time.
+          </p>
+          <ul class="svc-row__list">
+            <li>Masterplan Design</li>
+            <li>Mixed-Use Strategies</li>
+            <li>Public Realm Design</li>
+            <li>Development Frameworks</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── PILLARS ─────────────────────────────────────────────────── -->
+  <section class="svc-pillars">
+    <div class="svc-pillars__inner">
+      <div class="svc-pillars__header reveal">
+        <p class="svc-pillars__label" style="font-size: 13px;">Resolved. Purposeful. Built to Endure.</p>
+        <h2 class="svc-pillars__heading">A Full-Service Architecture Practice</h2>
+      </div>
+      <div class="svc-pillars__grid">
+
+        <!-- 1 -->
+        <div class="svc-pillar reveal">
+          <div class="svc-pillar__icon">
+            <span class="material-symbols-outlined">draw</span>
+          </div>
+          <h3 class="svc-pillar__title">Studio-Led Design</h3>
+          <p class="svc-pillar__desc">Every project is led personally by Craig Harrison — not delegated to a junior team. You get the full attention of the principal architect, from first sketch to final build.</p>
+        </div>
+
+        <!-- 2 -->
+        <div class="svc-pillar reveal" style="transition-delay:0.07s;">
+          <div class="svc-pillar__icon">
+            <span class="material-symbols-outlined">target</span>
+          </div>
+          <h3 class="svc-pillar__title">Vision to Reality</h3>
+          <p class="svc-pillar__desc">Bringing your project to life requires more than a good idea — it demands precision, intention, and a thoughtful process executed with absolute conviction.</p>
+        </div>
+
+        <!-- 3 -->
+        <div class="svc-pillar reveal" style="transition-delay:0.14s;">
+          <div class="svc-pillar__icon">
+            <span class="material-symbols-outlined">map</span>
+          </div>
+          <h3 class="svc-pillar__title">Eliminate Guesswork</h3>
+          <p class="svc-pillar__desc">With a structured brief, precise drawings, and clear specifications, every decision is made with confidence — no surprises, no ambiguity, no wasted time.</p>
+        </div>
+
+        <!-- 4 -->
+        <div class="svc-pillar reveal" style="transition-delay:0.21s;">
+          <div class="svc-pillar__icon">
+            <span class="material-symbols-outlined">home_work</span>
+          </div>
+          <h3 class="svc-pillar__title">Crafted and Considered</h3>
+          <p class="svc-pillar__desc">Every building we deliver is both architecturally resolved and deeply functional — spaces that work as beautifully as they look.</p>
+        </div>
+
+        <!-- 5 -->
+        <div class="svc-pillar reveal" style="transition-delay:0.28s;">
+          <div class="svc-pillar__icon">
+            <span class="material-symbols-outlined">front_hand</span>
+          </div>
+          <h3 class="svc-pillar__title">Simple Handover</h3>
+          <p class="svc-pillar__desc">A comprehensive documentation package that makes it straightforward to pass on to your contractor, builder, or tradespeople — ready to build from day one.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROCESS ───────────────────────────────────────────────── -->
+  <section class="svc-process">
+    <div class="svc-process__inner">
+
+      <div class="svc-process__header">
+        <p class="label reveal" style="font-size:14px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:20px;">How We Work</p>
+        <h2 class="svc-process__heading reveal">
+          A process built on clarity and conviction.
+        </h2>
+        <p class="svc-process__sub reveal">
+          We guide every client through a structured sequence — from the first conversation to the moment you step into a finished building. Each stage is led with transparency and precision.
+        </p>
+      </div>
+
+      <div class="svc-process__steps">
+
+        <div class="svc-step" data-dir="left">
+          <span class="svc-step__num">01</span>
+          <h3 class="svc-step__title">Initial Consultation</h3>
+          <p class="svc-step__desc">We meet on site or in studio to understand your vision, constraints, and ambitions. No charge. No obligation. Just an honest conversation.</p>
+        </div>
+
+        <div class="svc-step" data-dir="top" style="transition-delay:0.1s;">
+          <span class="svc-step__num">02</span>
+          <h3 class="svc-step__title">Site and Brief Analysis</h3>
+          <p class="svc-step__desc">A thorough appraisal of the site: topography, planning context, orientation, neighbouring buildings, and the particular character of the place.</p>
+        </div>
+
+        <div class="svc-step" data-dir="right" style="transition-delay:0.2s;">
+          <span class="svc-step__num">03</span>
+          <h3 class="svc-step__title">Concept Design</h3>
+          <p class="svc-step__desc">We present a design concept — sketches, moodboards, and early spatial diagrams — to establish the architectural direction before committing to detail.</p>
+        </div>
+
+        <div class="svc-step" data-dir="left" style="transition-delay:0.1s;">
+          <span class="svc-step__num">04</span>
+          <h3 class="svc-step__title">Planning and Approvals</h3>
+          <p class="svc-step__desc">We prepare and submit all planning documentation. We handle listed building consents, conservation area applications, and pre-application discussions.</p>
+        </div>
+
+        <div class="svc-step" data-dir="bottom" style="transition-delay:0.2s;">
+          <span class="svc-step__num">05</span>
+          <h3 class="svc-step__title">Technical Design</h3>
+          <p class="svc-step__desc">Detailed construction drawings, material specifications, and contractor coordination packages — everything required to build to the highest standard.</p>
+        </div>
+
+        <div class="svc-step" data-dir="right" style="transition-delay:0.3s;">
+          <span class="svc-step__num">06</span>
+          <h3 class="svc-step__title">Construction and Handover</h3>
+          <p class="svc-step__desc">We remain on site throughout construction — inspecting, resolving, and ensuring the built work matches the designed intent at every stage.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── DELIVERABLES ──────────────────────────────────────────── -->
+  <section class="svc-deliver">
+    <div class="svc-deliver__inner">
+
+      <div class="svc-deliver__left reveal">
+        <p class="label" style="font-size:15px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:20px;">What You Receive</p>
+        <h2 class="svc-deliver__heading">
+          Every project. Every detail. Delivered.
+        </h2>
+        <hr class="svc-deliver__rule" />
+        <p class="svc-deliver__body">
+          Our documentation sets are thorough, precise, and builder-ready. We do not leave interpretation to chance. What is drawn is what gets built.
+        </p>
+        <p class="svc-deliver__body" style="margin-top:16px;">
+          We also offer standalone services — planning applications, feasibility studies, and design reviews — for clients who require targeted advice rather than full project management.
+        </p>
+        <div class="svc-deliver__arrow">
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </div>
+      </div>
+
+      <div class="svc-deliver__items">
+
+        <div class="svc-deliver__item reveal" data-modal="modal-01">
+          <span class="svc-deliver__item-num">01</span>
+          <div class="svc-deliver__item-content">
+            <p class="svc-deliver__item-title">Planning Drawings</p>
+            <p class="svc-deliver__item-desc">Fully dimensioned floor plans, sections, and elevations prepared for local authority submission.</p>
+          </div>
+          <span class="svc-deliver__item-plus"><span class="material-symbols-outlined">arrow_forward</span></span>
+        </div>
+
+        <div class="svc-deliver__item reveal" data-modal="modal-02" style="transition-delay:0.07s;">
+          <span class="svc-deliver__item-num">02</span>
+          <div class="svc-deliver__item-content">
+            <p class="svc-deliver__item-title">3D Visualisations</p>
+            <p class="svc-deliver__item-desc">Photo-realistic renders and spatial walkthroughs so you see and refine the design before a single brick is laid.</p>
+          </div>
+          <span class="svc-deliver__item-plus"><span class="material-symbols-outlined">arrow_forward</span></span>
+        </div>
+
+        <div class="svc-deliver__item reveal" data-modal="modal-03" style="transition-delay:0.14s;">
+          <span class="svc-deliver__item-num">03</span>
+          <div class="svc-deliver__item-content">
+            <p class="svc-deliver__item-title">Material Specifications</p>
+            <p class="svc-deliver__item-desc">Curated material palettes with detailed specifications — stone, timber, glass, and metal — sourced from trusted suppliers.</p>
+          </div>
+          <span class="svc-deliver__item-plus"><span class="material-symbols-outlined">arrow_forward</span></span>
+        </div>
+
+        <div class="svc-deliver__item reveal" data-modal="modal-04" style="transition-delay:0.21s;">
+          <span class="svc-deliver__item-num">04</span>
+          <div class="svc-deliver__item-content">
+            <p class="svc-deliver__item-title">Contractor Coordination</p>
+            <p class="svc-deliver__item-desc">Tender packages, contractor interviews, and on-site inspection throughout construction — protecting quality at every stage.</p>
+          </div>
+          <span class="svc-deliver__item-plus"><span class="material-symbols-outlined">arrow_forward</span></span>
+        </div>
+
+        <div class="svc-deliver__item reveal" data-modal="modal-05" style="transition-delay:0.28s;">
+          <span class="svc-deliver__item-num">05</span>
+          <div class="svc-deliver__item-content">
+            <p class="svc-deliver__item-title">As-Built Documentation</p>
+            <p class="svc-deliver__item-desc">Complete record drawings and handover documentation delivered at project completion for your records and future reference.</p>
+          </div>
+          <span class="svc-deliver__item-plus"><span class="material-symbols-outlined">arrow_forward</span></span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── MODALS ────────────────────────────────────────────────── -->
+  <div class="dlv-overlay" id="dlvOverlay"></div>
+
+  <!-- Modal 01: Planning Drawings -->
+  <div class="dlv-modal" id="modal-01">
+    <button class="dlv-modal__close" aria-label="Close">×</button>
+    <p class="dlv-modal__num">01</p>
+    <h3 class="dlv-modal__title">Planning Drawings</h3>
+    <p class="dlv-modal__intro">A complete set of drawings prepared and submitted to the local planning authority — fully compliant, clearly annotated, and ready for approval.</p>
+    <div class="dlv-modal__grid">
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">2D Floor Plans</p>
+        <p class="dlv-modal__item-desc">Dimensioned plans showing room layouts, wall positions, openings, and spatial relationships at each level of the building.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Sections &amp; Elevations</p>
+        <p class="dlv-modal__item-desc">Vertical cuts and external faces showing heights, roof profiles, window positions, and material zones across all facades.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Site &amp; Location Plans</p>
+        <p class="dlv-modal__item-desc">Ordnance Survey based drawings showing the site boundary, orientation, neighbouring buildings, and relationship to the street.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Existing vs Proposed</p>
+        <p class="dlv-modal__item-desc">Side-by-side comparison drawings showing the current state and the proposed changes — required for most planning applications.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Planning Statement</p>
+        <p class="dlv-modal__item-desc">A written document explaining the design rationale, policy compliance, and contextual justification for the proposed development.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Heritage Drawings</p>
+        <p class="dlv-modal__item-desc">Specialist drawings for listed building applications — recording existing fabric and clearly identifying proposed interventions.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 02: 3D Visualisations -->
+  <div class="dlv-modal" id="modal-02">
+    <button class="dlv-modal__close" aria-label="Close">×</button>
+    <p class="dlv-modal__num">02</p>
+    <h3 class="dlv-modal__title">3D Visualisations</h3>
+    <p class="dlv-modal__intro">Photo-realistic imagery and spatial studies that allow you to see, experience, and refine your building before a single brick is laid.</p>
+    <div class="dlv-modal__grid">
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Exterior Renders</p>
+        <p class="dlv-modal__item-desc">High-resolution images showing the building from key viewpoints — daylight, dusk, and seasonal conditions to understand presence and materiality.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Interior Renders</p>
+        <p class="dlv-modal__item-desc">Room-level visualisations showing light, material, furniture, and spatial quality — giving a true sense of how each space will feel.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Aerial Perspectives</p>
+        <p class="dlv-modal__item-desc">Bird's-eye views showing the building in context — useful for planning submissions and understanding site coverage and massing.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Animated Walkthroughs</p>
+        <p class="dlv-modal__item-desc">A moving camera path through the building — ideal for client presentations, planning appeals, and communicating spatial sequence.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Material &amp; Lighting Studies</p>
+        <p class="dlv-modal__item-desc">Comparative renders testing alternative material combinations and lighting scenarios so you can make confident design decisions.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">VR-Ready Models</p>
+        <p class="dlv-modal__item-desc">Immersive virtual reality models allowing you to walk through the designed space at 1:1 scale before construction begins.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 03: Material Specifications -->
+  <div class="dlv-modal" id="modal-03">
+    <button class="dlv-modal__close" aria-label="Close">×</button>
+    <p class="dlv-modal__num">03</p>
+    <h3 class="dlv-modal__title">Material Specifications</h3>
+    <p class="dlv-modal__intro">A curated and detailed material schedule that removes ambiguity from the build process — every surface, finish, and product precisely defined.</p>
+    <div class="dlv-modal__grid">
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Stone &amp; Masonry</p>
+        <p class="dlv-modal__item-desc">Specification of natural stone, brick, and block — including supplier, grade, coursing pattern, joint finish, and fixing method.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Timber &amp; Cladding</p>
+        <p class="dlv-modal__item-desc">Species, grade, treatment, profile, and fixing details for all structural and decorative timber — internal and external.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Glass &amp; Glazing</p>
+        <p class="dlv-modal__item-desc">U-values, frame types, glass specification, and hardware for all windows, doors, rooflights, and structural glazing elements.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Metal &amp; Structural</p>
+        <p class="dlv-modal__item-desc">Steelwork, aluminium cladding, copper roofing, and bespoke metalwork — with finish, gauge, and fabrication requirements.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Finishes &amp; Surfaces</p>
+        <p class="dlv-modal__item-desc">Internal wall, floor, and ceiling finishes — plaster, render, screed, tile, and joinery — with product references and colour schedules.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Sample Boards</p>
+        <p class="dlv-modal__item-desc">Physical material sample boards presented at key design reviews so you can see, touch, and approve every material before ordering.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 04: Contractor Coordination -->
+  <div class="dlv-modal" id="modal-04">
+    <button class="dlv-modal__close" aria-label="Close">×</button>
+    <p class="dlv-modal__num">04</p>
+    <h3 class="dlv-modal__title">Contractor Coordination</h3>
+    <p class="dlv-modal__intro">We manage the relationship between design and construction — selecting the right contractors, protecting quality on site, and keeping every stage on track.</p>
+    <div class="dlv-modal__grid">
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Tender Packages</p>
+        <p class="dlv-modal__item-desc">A complete set of drawings, specifications, and schedules issued to contractors for competitive pricing — structured for clear, comparable returns.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Contractor Selection</p>
+        <p class="dlv-modal__item-desc">Interview, assessment, and recommendation of shortlisted contractors — based on quality, programme, price, and track record.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Site Inspections</p>
+        <p class="dlv-modal__item-desc">Regular visits throughout construction to review progress, inspect workmanship, and issue instructions — protecting the design intent on site.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Snagging &amp; Quality</p>
+        <p class="dlv-modal__item-desc">A detailed snagging inspection at practical completion — identifying and resolving every defect before the project is formally handed over.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Progress Reporting</p>
+        <p class="dlv-modal__item-desc">Regular written reports keeping you informed on programme, costs, decisions, and any issues arising on site — no surprises.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Contract Administration</p>
+        <p class="dlv-modal__item-desc">Formal administration of the building contract — certifying payments, issuing instructions, and managing variations throughout the build.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 05: As-Built Documentation -->
+  <div class="dlv-modal" id="modal-05">
+    <button class="dlv-modal__close" aria-label="Close">×</button>
+    <p class="dlv-modal__num">05</p>
+    <h3 class="dlv-modal__title">As-Built Documentation</h3>
+    <p class="dlv-modal__intro">A complete and accurate record of the finished building — everything you need for future maintenance, alterations, or resale.</p>
+    <div class="dlv-modal__grid">
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Record Drawings</p>
+        <p class="dlv-modal__item-desc">Updated floor plans, sections, and elevations reflecting the building as actually constructed — including any changes made during the build.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">O&amp;M Manuals</p>
+        <p class="dlv-modal__item-desc">Operation and maintenance manuals for all building systems — heating, ventilation, electrical, and specialist installations.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Warranties &amp; Certificates</p>
+        <p class="dlv-modal__item-desc">Compiled guarantees, structural warranties, building regulation certificates, and specialist system certifications in a single organised pack.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Handover Pack</p>
+        <p class="dlv-modal__item-desc">A clearly structured digital and physical handover pack — containing all drawings, specifications, product data sheets, and contact information.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">Photographic Record</p>
+        <p class="dlv-modal__item-desc">A professional photographic archive of the completed project — for your records, for planning purposes, and for future publications or sale.</p>
+      </div>
+      <div class="dlv-modal__item">
+        <p class="dlv-modal__item-title">BIM Model</p>
+        <p class="dlv-modal__item-desc">A final 3D building information model of the completed structure — useful for future alterations, extensions, or facilities management.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ─── CUSTOM CURSOR ───────────────────────────────────────── -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <script>
+    (function initDeliverModals() {
+      const overlay  = document.getElementById('dlvOverlay');
+      const items    = document.querySelectorAll('.svc-deliver__item[data-modal]');
+      const modals   = document.querySelectorAll('.dlv-modal');
+      const closes   = document.querySelectorAll('.dlv-modal__close');
+
+      function openModal(id) {
+        const modal = document.getElementById(id);
+        if (!modal) return;
+        overlay.classList.add('open');
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeAll() {
+        overlay.classList.remove('open');
+        modals.forEach(m => m.classList.remove('open'));
+        document.body.style.overflow = '';
+      }
+
+      items.forEach(item => {
+        item.addEventListener('click', () => openModal(item.dataset.modal));
+      });
+
+      closes.forEach(btn => btn.addEventListener('click', closeAll));
+      overlay.addEventListener('click', closeAll);
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeAll();
+      });
+    })();
+  </script>
+
+  <script>
+    (function initStepReveal() {
+      const steps = document.querySelectorAll('.svc-step[data-dir]');
+      if (!steps.length) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          } else {
+            entry.target.classList.remove('in-view');
+          }
+        });
+      }, { threshold: 0.15 });
+
+      steps.forEach(step => observer.observe(step));
+    })();
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

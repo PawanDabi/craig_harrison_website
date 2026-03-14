@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Craig Harrison Architects</title>
+  <meta name="description" content="Selected works by Craig Harrison Architects — residential, commercial, and restoration projects across the United Kingdom." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ─── NAV ─────────────────────────────────────────────────── -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo"><a href="index.html">Craig Harrison</a></div>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span></button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="services.html"  class="nav__link">Services</a></li>
+      <li><a href="about.html"     class="nav__link">About</a></li>
+      <li><a href="projects.html"  class="nav__link" style="color:var(--white)">Projects</a></li>
+      <li><a href="resources.html" class="nav__link">Resources</a></li>
+      <li><a href="contact.html"   class="nav__link nav__link--cta">Let's Chat</a></li>
+    </ul>
+  </nav>
+  <div class="nav__overlay" id="navOverlay">
+    <ul class="nav__overlay-links">
+      <li><a href="services.html"  class="overlay-link" data-num="01">Services</a></li>
+      <li><a href="about.html"     class="overlay-link" data-num="02">About</a></li>
+      <li><a href="projects.html"  class="overlay-link" data-num="03">Projects</a></li>
+      <li><a href="resources.html" class="overlay-link" data-num="04">Resources</a></li>
+      <li><a href="contact.html"   class="overlay-link" data-num="05">Let's Chat</a></li>
+    </ul>
+    <div class="nav__overlay-footer">
+      <p>studio@antonychandler.co.uk</p>
+      <p>+44 (0)20 7123 4567</p>
+    </div>
+  </div>
+
+  <!-- ─── PAGE BANNER ─────────────────────────────────────────── -->
+  <section class="page-banner">
+    <div class="container">
+      <span class="page-banner__eyebrow reveal">Built Work</span>
+      <h1 class="page-banner__title reveal">Projects</h1>
+      <p class="page-banner__sub reveal">
+        A selection of completed and ongoing work spanning residential, commercial, and restoration architecture across the United Kingdom.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── PROJECTS GRID ────────────────────────────────────────── -->
+  <section class="projects-page">
+    <div class="container">
+
+      <div class="works__header" style="margin-bottom: clamp(40px,5vw,64px);">
+        <div class="works__filters reveal" role="group" aria-label="Project filters">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="residential">Residential</button>
+          <button class="filter-btn" data-filter="commercial">Commercial</button>
+          <button class="filter-btn" data-filter="restoration">Restoration</button>
+        </div>
+      </div>
+
+      <div class="works__grid" id="worksGrid">
+
+        <div class="project-card reveal" data-category="residential">
+          <a href="project.html" class="project-card__link">
+            <div class="project-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&q=80" alt="The Glass Pavilion" loading="lazy" />
+            </div>
+            <div class="project-card__info">
+              <span class="project-card__index">01</span>
+              <div><h3 class="project-card__name">The Glass Pavilion</h3><p class="project-card__meta">Sussex, UK &mdash; 2023</p></div>
+              <span class="project-card__arrow">→</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card reveal" data-category="commercial">
+          <a href="project.html" class="project-card__link">
+            <div class="project-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80" alt="Meridian House" loading="lazy" />
+            </div>
+            <div class="project-card__info">
+              <span class="project-card__index">02</span>
+              <div><h3 class="project-card__name">Meridian House</h3><p class="project-card__meta">London, UK &mdash; 2022</p></div>
+              <span class="project-card__arrow">→</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card reveal" data-category="restoration">
+          <a href="project.html" class="project-card__link">
+            <div class="project-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=900&q=80" alt="The Mill Conversion" loading="lazy" />
+            </div>
+            <div class="project-card__info">
+              <span class="project-card__index">03</span>
+              <div><h3 class="project-card__name">The Mill Conversion</h3><p class="project-card__meta">Yorkshire, UK &mdash; 2022</p></div>
+              <span class="project-card__arrow">→</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card reveal" data-category="residential">
+          <a href="project.html" class="project-card__link">
+            <div class="project-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=900&q=80" alt="Harbour View Residence" loading="lazy" />
+            </div>
+            <div class="project-card__info">
+              <span class="project-card__index">04</span>
+              <div><h3 class="project-card__name">Harbour View Residence</h3><p class="project-card__meta">Cornwall, UK &mdash; 2021</p></div>
+              <span class="project-card__arrow">→</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card reveal" data-category="commercial">
+          <a href="project.html" class="project-card__link">
+            <div class="project-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&q=80" alt="The Atrium Gallery" loading="lazy" />
+            </div>
+            <div class="project-card__info">
+              <span class="project-card__index">05</span>
+              <div><h3 class="project-card__name">The Atrium Gallery</h3><p class="project-card__meta">Edinburgh, UK &mdash; 2021</p></div>
+              <span class="project-card__arrow">→</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card reveal" data-category="restoration">
+          <a href="project.html" class="project-card__link">
+            <div class="project-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=900&q=80" alt="Stonebridge Manor" loading="lazy" />
+            </div>
+            <div class="project-card__info">
+              <span class="project-card__index">06</span>
+              <div><h3 class="project-card__name">Stonebridge Manor</h3><p class="project-card__meta">Cotswolds, UK &mdash; 2020</p></div>
+              <span class="project-card__arrow">→</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card reveal" data-category="commercial">
+          <a href="project.html" class="project-card__link">
+            <div class="project-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80" alt="The Foundry Studios" loading="lazy" />
+            </div>
+            <div class="project-card__info">
+              <span class="project-card__index">07</span>
+              <div><h3 class="project-card__name">The Foundry Studios</h3><p class="project-card__meta">Birmingham, UK &mdash; 2020</p></div>
+              <span class="project-card__arrow">→</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card reveal" data-category="residential">
+          <a href="project.html" class="project-card__link">
+            <div class="project-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80" alt="Chalk Hill House" loading="lazy" />
+            </div>
+            <div class="project-card__info">
+              <span class="project-card__index">08</span>
+              <div><h3 class="project-card__name">Chalk Hill House</h3><p class="project-card__meta">Kent, UK &mdash; 2019</p></div>
+              <span class="project-card__arrow">→</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="project-card reveal" data-category="restoration">
+          <a href="project.html" class="project-card__link">
+            <div class="project-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=900&q=80" alt="The Museum of Craft" loading="lazy" />
+            </div>
+            <div class="project-card__info">
+              <span class="project-card__index">09</span>
+              <div><h3 class="project-card__name">The Museum of Craft</h3><p class="project-card__meta">Bath, UK &mdash; 2018</p></div>
+              <span class="project-card__arrow">→</span>
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+      <p class="projects-count reveal" id="projectsCount">Showing 9 projects</p>
+
+    </div>
+  </section>
+
+  <!-- ─── CTA ─────────────────────────────────────────────────── -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta__inner">
+        <p class="label reveal">Commission a Project</p>
+        <h2 class="cta__heading reveal">Ready to begin<br>a new project?</h2>
+        <p class="cta__sub reveal">Tell us about your vision and we will tell you what is possible.</p>
+        <a href="contact.html" class="cta__btn reveal">Let's Chat</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ───────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <p class="footer__logo">Craig Harrison</p>
+          <p class="footer__tagline">Architecture · Interior · Urban Design</p>
+        </div>
+      </div>
+      <div class="footer__rule"></div>
+      <div class="footer__cols">
+        <div class="footer__col">
+          <p class="footer__col-title">Studio</p>
+          <address>14 Whitfield Street<br />Fitzrovia, London<br />W1T 2RH, United Kingdom</address>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Contact</p>
+          <p><a href="mailto:studio@antonychandler.co.uk">studio@antonychandler.co.uk</a></p>
+          <p><a href="tel:+442071234567">+44 (0)20 7123 4567</a></p>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Services</p>
+          <p>Residential Design</p>
+          <p>Commercial Architecture</p>
+          <p>Heritage Restoration</p>
+          <p>Urban Planning</p>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Follow</p>
+          <p><a href="#" target="_blank" rel="noopener">Instagram</a></p>
+          <p><a href="#" target="_blank" rel="noopener">LinkedIn</a></p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2024 Craig Harrison Architects Ltd. All rights reserved.</p>
+        <p>Registered in England &amp; Wales · No. 07654321</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <script src="js/main.js"></script>
+  <script>
+    // Update count on filter
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        setTimeout(() => {
+          const visible = document.querySelectorAll('.project-card:not([style*="display: none"])').length;
+          const label = btn.dataset.filter === 'all' ? 'Showing all 9 projects' : `Showing ${visible} project${visible !== 1 ? 's' : ''}`;
+          const counter = document.getElementById('projectsCount');
+          if (counter) counter.textContent = label;
+        }, 320);
+      });
+    });
+  </script>
+</body>
+</html>
