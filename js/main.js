@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════════════════════
-   ANTONY CHANDLER ARCHITECTS
+   CRAIG HARRISON ARCHITECTS
    main.js — Interactions & Animation
    ══════════════════════════════════════════════════════════════ */
 
